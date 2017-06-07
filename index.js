@@ -1,5 +1,4 @@
 const rp = require("request-promise");
-const config = require("config");
 const moment = require("moment");
 
 const STATE_TEXT_MAP = {
@@ -38,7 +37,7 @@ function resolveLogisticsResult( rawData ) {
       records: (rawData.data || []).map((r) => {
         r.time = moment(r.time).format();
         r.description = r.context;
-        
+
         delete r.context;
 
         return r;
@@ -69,7 +68,7 @@ module.exports = {
     return rp({
         uri: `https://api.kuaidi100.com/api`,
         qs: {
-          id: config.get("app.id"),
+          id: "e6284a5bc11ddb8d",
           com: params.company,
           nu: params.receipt
         },
